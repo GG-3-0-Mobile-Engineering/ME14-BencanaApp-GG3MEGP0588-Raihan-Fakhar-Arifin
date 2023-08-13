@@ -109,6 +109,7 @@ class MainActivity : AppCompatActivity() {
             remoteData()
 
         }
+//        GET ARCHIVE API
         callArchiveDialog()
 
 //        SearchView
@@ -171,6 +172,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, "Server Error", Toast.LENGTH_SHORT).show()
             }
         })
+        return
     }
 
     fun setDataToAdapter(data: ArrayList<Geometry>): ArrayList<Geometry>{
@@ -266,12 +268,12 @@ class MainActivity : AppCompatActivity() {
 
             with(builder){
                 setTitle("Pilih Tanggal Arsip")
-                setPositiveButton("Ok"){dialog, which ->
+                setPositiveButton(resources.getText(R.string.text_ok)){dialog, which ->
                     startString = startDate.text.toString()
                     endString = endDate.text.toString()
                     remoteDataArchive(startString, endString)
                 }
-                setNegativeButton("Cancel"){dialog, which ->
+                setNegativeButton(resources.getText(R.string.text_cancel)){dialog, which ->
                 }
                 setView(dialogLayout)
                 show()
